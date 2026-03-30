@@ -3,141 +3,57 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="25 Anni Insieme — Linea del Tempo del nostro anniversario"/>
-  <title>25° Anniversario — Marco &amp; Sofia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <title>25° Anniversario — Marco & Sofia</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- ════════════════════════════════════
-     HERO
-════════════════════════════════════ -->
-<section class="hero" aria-label="Intestazione anniversario">
-  <div class="hero-bg"></div>
-  <div class="hero-particles" id="particles" aria-hidden="true"></div>
-
-  <div class="hero-content">
-    <div  class="hero-badge">Celebrazione Speciale</div>
-    <!-- data di inizio relazione -->
-    <div  class="hero-date-start" id="hero-date-start">Dal 15 Giugno 2000</div>
-    <!-- numero grande "25" -->
-    <span class="hero-number"     id="hero-num">25</span>
-    <div  class="hero-anni">Anni Insieme</div>
-    <div  class="hero-sep"        aria-hidden="true"></div>
-    <!-- nomi -->
-    <div  class="hero-names"      id="hero-names">Marco &amp; Sofia</div>
-    <!-- data anniversario in evidenza -->
-    <div  class="hero-ann-date"   id="hero-ann-date">🎊 15 Giugno 2025</div>
-    <!-- range anni -->
-    <div  class="hero-year-range" id="hero-year-range">2000 — 2025</div>
+<header class="fixed-header">
+  <div class="header-inner">
+    <div class="header-names" id="hero-names">Marco & Sofia</div>
+    <div class="header-badge">25 Anni Insieme</div>
   </div>
+</header>
 
-  <div class="hero-scroll" aria-hidden="true">
-    <span>Scorri</span>
-    <div class="scroll-line"></div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-date-range" id="hero-range">15 Giugno 2000 — 15 Giugno 2025</div>
+    <div class="hero-sep"></div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════
-     TIMELINE
-════════════════════════════════════ -->
-<main class="tl-section">
-  <div class="section-header">
-    <p class="section-label">La nostra storia</p>
-    <h1 class="section-title">Ogni momento<br><em>per sempre</em></h1>
-  </div>
-
-  <div class="timeline" id="timeline"
-       role="list" aria-label="Linea del tempo degli eventi">
-    <!-- populated by script.js -->
-  </div>
+<main class="timeline-container">
+  <div class="timeline" id="timeline-main">
+    </div>
 </main>
 
-
-<!-- ════════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
-<footer>
-  <span class="footer-heart" aria-hidden="true">♥</span>
-  <div  class="footer-names" id="footer-names">Marco &amp; Sofia</div>
-  <div  class="footer-meta"  id="footer-meta">2000 — 2025 · 25 Anni d'Amore</div>
-</footer>
-
-
-<!-- ════════════════════════════════════
-     SIDE PANEL — event detail
-════════════════════════════════════ -->
-<div class="panel-overlay" id="panel-overlay"
-     role="dialog" aria-modal="true" aria-labelledby="p-cover-title">
-
-  <aside class="panel" id="panel">
-
-    <!-- sticky top-bar -->
-    <div class="panel-topbar">
-      <div class="ptb-left">
-        <span class="ptb-emoji" id="p-emoji">✨</span>
-        <div  class="ptb-meta">
-          <span class="ptb-year" id="p-year">2000</span>
-          <span class="ptb-date" id="p-date">1 Gennaio 2000</span>
-        </div>
-      </div>
-      <button class="panel-close" id="panel-close" aria-label="Chiudi pannello">✕</button>
-    </div>
-
-    <!-- scrollable body -->
-    <div class="panel-body" id="panel-body">
-
-      <!-- hero cover image -->
-      <div class="panel-cover">
+<div class="modal-overlay" id="p-ov" role="dialog" aria-modal="true">
+  <aside class="modal-window">
+    <button class="modal-close" id="p-close">✕</button>
+    <div class="modal-body">
+      <div class="modal-header-img">
         <img id="p-cover" src="" alt=""/>
-        <div class="panel-cover-ov"></div>
-        <span class="panel-cat-badge"   id="p-cat-badge">Categoria</span>
-        <!-- ★ date visibile sulla foto -->
-        <span class="panel-cover-date"  id="p-cover-date">📅 1 Gennaio 2000</span>
-        <div  class="panel-cover-title" id="p-cover-title">Titolo evento</div>
       </div>
-
-      <div class="panel-content">
-
-        <!-- ★ data evento in blocco evidenziato -->
-        <div class="panel-date-block">
-          <span class="pdb-icon">📅</span>
-          <div class="pdb-text">
-            <span class="pdb-label">Data dell'evento</span>
-            <span class="pdb-val" id="p-full-date">1 Gennaio 2000</span>
+      <div class="modal-content">
+          <div class="modal-meta">
+            <h2 id="p-cover-title"></h2>
+            <p class="modal-date-val" id="p-full-date"></p>
           </div>
-        </div>
-
-        <!-- descrizione completa -->
-        <p class="panel-desc" id="p-desc">Descrizione…</p>
-
-        <!-- galleria foto scrollabile -->
-        <div class="gallery-label" aria-hidden="true">Fotografie</div>
-        <div class="gallery-scroll" id="p-gallery"
-             role="list" aria-label="Galleria fotografica dell'evento">
-          <!-- populated by script.js -->
-        </div>
-
-      </div><!-- /panel-content -->
-    </div><!-- /panel-body -->
+        <p class="panel-desc" id="p-desc"></p>
+        <div class="gallery-label">Fotografie</div>
+        <div class="gallery-scroll" id="p-gallery"></div>
+      </div>
+    </div>
   </aside>
-
-</div><!-- /panel-overlay -->
-
-
-<!-- ════════════════════════════════════
-     LIGHTBOX
-════════════════════════════════════ -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ingrandita">
-  <button class="lb-close" id="lb-close" aria-label="Chiudi">✕</button>
-  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Foto precedente">‹</button>
-  <img class="lb-img" id="lb-img" src="" alt="Foto ingrandita"/>
-  <button class="lb-nav lb-next" id="lb-next" aria-label="Foto successiva">›</button>
-  <div class="lb-counter" id="lb-counter" aria-live="polite"></div>
 </div>
 
+<div class="lb" id="lb">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+  <button class="lb-nav lb-next" id="lb-next">›</button>
+  <div class="lb-content"><img id="lb-img" src="" alt=""/></div>
+</div>
 
 <script src="script.js"></script>
 </body>
