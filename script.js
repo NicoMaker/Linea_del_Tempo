@@ -1,8 +1,7 @@
 /* =====================================================
-   25° ANNIVERSARIO — script.js
-   Loads data.json, builds timeline, manages panel
-   and lightbox.  All state lives here; HTML is static.
-   ===================================================== */
+   25° ANNIVERSARIO — script.js COMPLETO
+   Con frecce lightbox, toggle modale/pagina, alternati responsive
+   ==================================================== */
 
 (async () => {
 
@@ -23,13 +22,13 @@
 
   /* ── 2. Category meta ── */
   const CAT = {
-    amore:        { label: 'Amore',        color: 'var(--c-amore)' },
-    viaggio:      { label: 'Viaggio',      color: 'var(--c-viaggio)' },
-    famiglia:     { label: 'Famiglia',     color: 'var(--c-famiglia)' },
-    casa:         { label: 'Casa',         color: 'var(--c-casa)' },
-    matrimonio:   { label: 'Matrimonio',   color: 'var(--c-matrimonio)' },
+    amore:      { label: 'Amore',      color: 'var(--c-amore)' },
+    viaggio:    { label: 'Viaggio',    color: 'var(--c-viaggio)' },
+    famiglia:   { label: 'Famiglia',   color: 'var(--c-famiglia)' },
+    casa:       { label: 'Casa',       color: 'var(--c-casa)' },
+    matrimonio: { label: 'Matrimonio', color: 'var(--c-matrimonio)' },
     anniversario: { label: 'Anniversario', color: 'var(--c-anniversario)' },
-    speciale:     { label: 'Speciale',     color: 'var(--c-speciale)' },
+    speciale:   { label: 'Speciale',   color: 'var(--c-speciale)' },
   };
 
   /* ── 3. Populate Hero ── */
@@ -56,7 +55,7 @@
     pc.appendChild(p);
   }
 
-  /* ── 5. Build Timeline ── */
+  /* ── 5. Build Timeline (ALTERNATI RESPONSIVE) ── */
   const tlEl   = document.getElementById('timeline');
   let lastYear = null;
   let sideIdx  = 0;
@@ -73,7 +72,7 @@
         `<div class="year-pill">${ev.year}</div>`;
       tlEl.appendChild(yb);
       lastYear = ev.year;
-      sideIdx  = 0; // reset: first event of each year goes left
+      sideIdx  = 0;
     }
 
     const side = (sideIdx % 2 === 0) ? 'left' : 'right';
@@ -84,12 +83,13 @@
     item.setAttribute('role', 'listitem');
 
     item.innerHTML = `
-      <div class="card" tabindex="0" role="button"
-           aria-label="Apri dettagli: ${ev.title} — ${ev.fullDate}">
+      <div class="card" tabindex="0" data-event-id="${ev.id || ev.year}"
+           data-url="${ev.url || ''}"
+           role="button" aria-label="Apri dettagli: ${ev.title} — ${ev.fullDate}">
         <div class="card-img">
           <img src="${ev.cover}" alt="${ev.title}" loading="lazy"/>
           <div class="card-img-ov"></div>
-          <span class="card-cat"  style="background:${meta.color}">${meta.label}</span>
+          <span class="card-cat" style="background:${meta.color}">${meta.label}</span>
           <span class="card-date">📅 ${ev.fullDate}</span>
           <span class="card-year">${ev.year}</span>
         </div>
@@ -103,16 +103,36 @@
         </div>
       </div>`;
 
-    const card = item.querySelector('.card');
-    const open = () => openPanel(ev);
-    card.addEventListener('click', open);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
-    });
     tlEl.appendChild(item);
   });
 
-  /* ── 6. Scroll reveal (IntersectionObserver) ── */
+  /* ── 6. EVENT HANDLER (Toggle modale vs pagina) ── */
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', handleCardClick);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleCardClick.call(card);
+      }
+    });
+  });
+
+  function handleCardClick() {
+    const url = this.dataset.url;
+    const eventId = this.dataset.eventId;
+    
+    if (window.innerWidth >= 768 && url) {
+      // Desktop + URL → NUOVA PAGINA
+      window.open(url, '_blank');
+    } else {
+      // Mobile O senza URL → MODALE
+      const ev = events.find(e => (e.id || e.year) == eventId);
+      if (ev) openPanel(ev);
+    }
+  }
+
+  /* ── 7. Scroll reveal ── */
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -123,20 +143,21 @@
   }, { threshold: 0.10 });
   document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
 
-
   /* ════════════════════════════════════════
-     SIDE PANEL
+     SIDE PANEL (con FRECCE lightbox)
   ════════════════════════════════════════ */
   const panelOverlay = document.getElementById('panel-overlay');
   const panelClose   = document.getElementById('panel-close');
   const panelBody    = document.getElementById('panel-body');
 
+  let currentEvent = null;
   let currentPhotos = [];
   let lbIdx = 0;
 
   function openPanel(ev) {
-    const meta = CAT[ev.category] || CAT.speciale;
+    currentEvent = ev;
     currentPhotos = ev.photos && ev.photos.length ? ev.photos : [ev.cover];
+    const meta = CAT[ev.category] || CAT.speciale;
 
     /* Top-bar */
     document.getElementById('p-emoji').textContent = ev.emoji;
@@ -151,8 +172,8 @@
     document.getElementById('p-cover-title').textContent = ev.title;
 
     const catBadge = document.getElementById('p-cat-badge');
-    catBadge.textContent        = meta.label;
-    catBadge.style.background   = meta.color;
+    catBadge.textContent     = meta.label;
+    catBadge.style.background = meta.color;
 
     /* Date block */
     document.getElementById('p-full-date').textContent = ev.fullDate;
@@ -160,7 +181,7 @@
     /* Description */
     document.getElementById('p-desc').textContent = ev.description;
 
-    /* Gallery */
+    /* Gallery CON FRECCE */
     const gEl = document.getElementById('p-gallery');
     gEl.innerHTML = '';
     currentPhotos.forEach((url, i) => {
@@ -194,9 +215,8 @@
     if (e.target === panelOverlay) closePanel();
   });
 
-
   /* ════════════════════════════════════════
-     LIGHTBOX
+     LIGHTBOX CON FRECCE (avanti/indietro)
   ════════════════════════════════════════ */
   const lb        = document.getElementById('lb');
   const lbImg     = document.getElementById('lb-img');
@@ -204,20 +224,23 @@
 
   function openLightbox(idx) {
     lbIdx = idx;
-    lbImg.src = currentPhotos[lbIdx];
-    lbCounter.textContent = (lbIdx + 1) + ' / ' + currentPhotos.length;
+    updateLightbox();
     lb.classList.add('open');
   }
+
+  function updateLightbox() {
+    lbImg.src = currentPhotos[lbIdx];
+    lbCounter.textContent = `${lbIdx + 1} / ${currentPhotos.length}`;
+  }
+
   function closeLightbox() { lb.classList.remove('open'); }
   function lbNext() {
     lbIdx = (lbIdx + 1) % currentPhotos.length;
-    lbImg.src = currentPhotos[lbIdx];
-    lbCounter.textContent = (lbIdx + 1) + ' / ' + currentPhotos.length;
+    updateLightbox();
   }
   function lbPrev() {
     lbIdx = (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
-    lbImg.src = currentPhotos[lbIdx];
-    lbCounter.textContent = (lbIdx + 1) + ' / ' + currentPhotos.length;
+    updateLightbox();
   }
 
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
@@ -225,7 +248,7 @@
   document.getElementById('lb-prev').addEventListener('click', lbPrev);
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 
-  /* Touch swipe on lightbox */
+  /* Touch swipe */
   let txStart = 0;
   lb.addEventListener('touchstart', e => { txStart = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend',   e => {
@@ -244,4 +267,63 @@
     if (e.key === 'Escape' && panelOverlay.classList.contains('open')) closePanel();
   });
 
+  /* Resize handler per alternati */
+  window.addEventListener('resize', () => {
+    // Re-trigger scroll reveal su resize
+    document.querySelectorAll('.tl-item').forEach(el => {
+      el.classList.remove('visible');
+      io.observe(el);
+    });
+  });
+
 })();
+
+/* =====================================================
+   script.js COMPLETO - MODALE FISSO 540x680px
+   ==================================================== */
+
+// (Mantieni tutto il codice precedente fino alla sezione SIDE PANEL)
+
+function openPanel(ev) {
+  currentEvent = ev;
+  currentPhotos = ev.photos && ev.photos.length ? ev.photos : [ev.cover];
+  const meta = CAT[ev.category] || CAT.speciale;
+
+  // Popola TUTTI i campi del modale (come prima)
+  document.getElementById('p-emoji').textContent = ev.emoji;
+  document.getElementById('p-year').textContent  = ev.year;
+  document.getElementById('p-date').textContent  = ev.fullDate;
+  
+  document.getElementById('p-cover').src = ev.cover;
+  document.getElementById('p-cover').alt = ev.title;
+  document.getElementById('p-cover-date').textContent = '📅 ' + ev.fullDate;
+  document.getElementById('p-cover-title').textContent = ev.title;
+  
+  document.getElementById('p-cat-badge').textContent = meta.label;
+  document.getElementById('p-cat-badge').style.background = meta.color;
+  
+  document.getElementById('p-full-date').textContent = ev.fullDate;
+  document.getElementById('p-desc').textContent = ev.description;
+
+  // Gallery
+  const gEl = document.getElementById('p-gallery');
+  gEl.innerHTML = '';
+  currentPhotos.forEach((url, i) => {
+    const d = document.createElement('div');
+    d.className = 'gphoto';
+    d.innerHTML = `<img src="${url}" alt="Foto ${i+1}"/>` +
+                  `<div class="gphoto-ov"><span class="gphoto-zoom">🔍</span></div>`;
+    d.onclick = () => openLightbox(i);
+    gEl.appendChild(d);
+  });
+
+  // APRE MODALE FISSO
+  panelOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  panelClose.focus();
+}
+
+// Il resto rimane identico (lightbox con frecce, etc.)
+
+const side = (sideIdx % 2 === 0) ? 'left' : 'right';
+sideIdx++;
