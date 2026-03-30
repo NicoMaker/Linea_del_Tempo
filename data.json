@@ -1,9 +1,9 @@
 {
   "anniversary": {
-    "couple": "Marco & Sofia",
-    "startDate": "15 Giugno 2000",
+    "couple": "Mara & Andrea",
+    "startDate": "02 Settembre 2000",
     "startYear": 2000,
-    "anniversaryDate": "15 Giugno 2025",
+    "anniversaryDate": "02 Settembre 2025",
     "endYear": 2025,
     "years": 25
   },
@@ -59,7 +59,7 @@
     {
       "id": 4,
       "year": 2003,
-      "dateFrom": "8 Marzo 2003",
+      "dateFrom": "8 Marzo",
       "dateTo": null,
       "title": "La Prima Casa",
       "description": "Le chiavi di un piccolo appartamento in mano. Scatole ovunque, pareti bianche e una coppia di sognatori pronti a costruire il loro nido. Ogni angolo dipinto insieme, ogni mobile scelto insieme.",
@@ -75,7 +75,7 @@
     {
       "id": 5,
       "year": 2004,
-      "dateFrom": "19 Settembre 2004",
+      "dateFrom": "19 Settembre",
       "dateTo": null,
       "title": "La Proposta di Matrimonio",
       "description": "Al tramonto sul lungomare, con l'anello nascosto in un cofanetto di velluto bordeaux. Una domanda che cambia la vita, una risposta che non si è fatta attendere neanche un secondo.",
@@ -91,7 +91,7 @@
     {
       "id": 6,
       "year": 2005,
-      "dateFrom": "15 Maggio 2005",
+      "dateFrom": "15 Maggio",
       "dateTo": null,
       "title": "Il Matrimonio",
       "description": "Il giorno più bello della vita. Una chiesa in fiori, 150 invitati con gli occhi lucidi, e due sì che echeggiarono per sempre nel cuore di entrambi. Una danza che durerà tutta la vita.",
@@ -108,8 +108,8 @@
     {
       "id": 7,
       "year": 2006,
-      "dateFrom": "2 Luglio 2006",
-      "dateTo": "9 Luglio 2006",
+      "dateFrom": "2 Luglio",
+      "dateTo": "9 Luglio",
       "title": "Luna di Miele alle Maldive",
       "description": "Acque cristalline, bungalow sull'acqua e tramonti mozzafiato. Sette giorni fuori dal mondo, immersi solo l'uno nell'altro. Un paradiso che ci ha accolto come sposi.",
       "category": "viaggio",
@@ -124,7 +124,7 @@
     {
       "id": 8,
       "year": 2007,
-      "dateFrom": "7 Aprile 2007",
+      "dateFrom": "7 Aprile",
       "dateTo": null,
       "title": "Nasce Luca",
       "description": "Il giorno che tutto cambia. Un piccolo essere di 3,2 kg che con il suo primo vagito ha trasformato due innamorati in una famiglia. Il nostro cuore si è moltiplicato.",
@@ -140,7 +140,7 @@
     {
       "id": 9,
       "year": 2009,
-      "dateFrom": "23 Novembre 2009",
+      "dateFrom": "23 Novembre",
       "dateTo": null,
       "title": "Nasce Giulia",
       "description": "La nostra piccola principessa. Con i suoi occhi verdi e il sorriso di mamma, ha portato ancora più luce nella nostra vita. Due figli, una famiglia completa.",
@@ -156,7 +156,7 @@
     {
       "id": 10,
       "year": 2010,
-      "dateFrom": "11 Giugno 2010",
+      "dateFrom": "11 Giugno",
       "dateTo": null,
       "title": "La Casa dei Sogni",
       "description": "Dopo anni di risparmio, finalmente la casa con giardino. Un ciliegio nel cortile, una cucina grande e spazio per costruire nuovi ricordi. Le radici della nostra famiglia.",
@@ -172,8 +172,8 @@
     {
       "id": 11,
       "year": 2012,
-      "dateFrom": "30 Dicembre 2012",
-      "dateTo": "6 Gennaio 2013",
+      "dateFrom": "30 Dicembre",
+      "dateTo": "6 Gennaio",
       "title": "New York per Capodanno",
       "description": "Times Square, i grattacieli illuminati e il conto alla rovescia più emozionante della nostra vita. Un nuovo anno, nella città che non dorme mai, mano nella mano.",
       "category": "viaggio",
@@ -188,8 +188,8 @@
     {
       "id": 12,
       "year": 2013,
-      "dateFrom": "9 Agosto 2013",
-      "dateTo": "23 Agosto 2013",
+      "dateFrom": "9 Agosto",
+      "dateTo": "23 Agosto",
       "title": "Estate in Toscana",
       "description": "Una villa tra le colline del Chianti, vino rosso al tramonto, cipressi e girasoli. Un'estate che profumava di eternità. I bambini tra i filari, noi mano nella mano.",
       "category": "viaggio",
@@ -204,10 +204,10 @@
     {
       "id": 13,
       "year": 2015,
-      "dateFrom": "15 Maggio 2015",
+      "dateFrom": "15 Maggio",
       "dateTo": null,
       "title": "10° Anniversario di Matrimonio",
-      "description": "Dieci anni di matrimonio. Una cena romantica nello stesso ristorante della proposta, gli stessi occhi di allora — ma con dentro dieci anni in più di vita condivisa. Ogni ruga, una storia.",
+      "description": "Dieci anni di matrimonio. Una cena romantica nello stesso ristorante della proposta, gli stessi occhi di allora — ma con dentro dieci anni in più di vita condivisa. Ogni ruga, una story.",
       "category": "anniversario",
       "emoji": "🎊",
       "cover": "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=700&q=80",
@@ -220,8 +220,8 @@
     {
       "id": 14,
       "year": 2017,
-      "dateFrom": "21 Luglio 2017",
-      "dateTo": "4 Agosto 2017",
+      "dateFrom": "21 Luglio",
+      "dateTo": "4 Agosto",
       "title": "Giappone: Un Sogno",
       "description": "Tokyo, Kyoto, i templi zen e i fiori di ciliegio. Un viaggio che ha aperto nuovi orizzonti e fatto scoprire un mondo lontanissimo eppure stranamente familiare.",
       "category": "viaggio",
@@ -236,7 +236,7 @@
     {
       "id": 15,
       "year": 2019,
-      "dateFrom": "28 Giugno 2019",
+      "dateFrom": "28 Giugno",
       "dateTo": null,
       "title": "Laurea di Luca",
       "description": "Il nostro primogenito con la corona d'alloro. Lacrime di gioia, un discorso emozionante e un pranzo in famiglia da ricordare per sempre. Siamo orgogliosi come non mai.",
@@ -252,8 +252,8 @@
     {
       "id": 16,
       "year": 2020,
-      "dateFrom": "4 Aprile 2020",
-      "dateTo": "18 Maggio 2020",
+      "dateFrom": "4 Aprile",
+      "dateTo": "18 Maggio",
       "title": "Il Lockdown: Insieme",
       "description": "Il mondo si fermò, ma noi no. Puzzle, libri, cucina sperimentale e tante risate. La quarantena ci ha ricordato che la casa è dove sei con le persone giuste.",
       "category": "speciale",
@@ -268,7 +268,7 @@
     {
       "id": 17,
       "year": 2021,
-      "dateFrom": "11 Settembre 2021",
+      "dateFrom": "11 Settembre",
       "dateTo": null,
       "title": "Matrimonio di Luca",
       "description": "Il nostro bambino si è sposato. Vedere il figlio camminare verso l'altare è stata l'emozione più grande: un cerchio che si chiude e uno nuovo che si apre.",
@@ -284,7 +284,7 @@
     {
       "id": 18,
       "year": 2022,
-      "dateFrom": "3 Marzo 2022",
+      "dateFrom": "3 Marzo",
       "dateTo": null,
       "title": "Nonni per la Prima Volta",
       "description": "Piccola Elena è arrivata al mondo pesando 3,1 kg. Essere nonni è una gioia indescrivibile: l'amore si moltiplica senza dividersi mai.",
@@ -300,8 +300,8 @@
     {
       "id": 19,
       "year": 2023,
-      "dateFrom": "1 Ottobre 2023",
-      "dateTo": "31 Ottobre 2023",
+      "dateFrom": "1 Ottobre",
+      "dateTo": "31 Ottobre",
       "title": "Cammino de Santiago",
       "description": "500 km a piedi. Vesciche, pioggia, fatica — e un'alba finale sulla cattedrale che ha ripagato tutto. Un viaggio che è anche una metafora: si cammina meglio in due.",
       "category": "viaggio",
@@ -316,7 +316,7 @@
     {
       "id": 20,
       "year": 2024,
-      "dateFrom": "17 Maggio 2024",
+      "dateFrom": "17 Maggio",
       "dateTo": null,
       "title": "Laurea di Giulia",
       "description": "La nostra bambina con i capelli ricci oggi è dottoressa in architettura. Con quella stessa grinta che aveva da piccola, ha conquistato il suo sogno. Che orgoglio.",
@@ -332,7 +332,7 @@
     {
       "id": 21,
       "year": 2025,
-      "dateFrom": "15 Giugno 2025",
+      "dateFrom": "15 Giugno",
       "dateTo": null,
       "title": "25° Anniversario",
       "description": "Venticinque anni. Non sono stati sempre facili, ma ogni giorno è stato vissuto sapendo di avere accanto la persona giusta. Qui, adesso, ancora insieme — con lo stesso amore di sempre, e molto di più.",
