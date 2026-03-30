@@ -1,0 +1,287 @@
+{
+  "anniversary": {
+    "couple": "Marco & Sofia",
+    "startDate": "15 Giugno 2000",
+    "startYear": 2000,
+    "anniversaryDate": "15 Giugno 2025",
+    "endYear": 2025,
+    "years": 25
+  },
+  "events": [
+    {
+      "id": 1,
+      "year": 2000, "month": "Giugno",   "day": "21", "fullDate": "21 Giugno 2000",
+      "title": "Il Primo Incontro",
+      "description": "Tutto ebbe inizio in una calda sera d'estate, durante una festa di amici comuni. Uno sguardo tra la folla, un sorriso timido, e il destino aveva già deciso. Nessuno dei due sapeva ancora che quella sera avrebbe cambiato tutto per sempre.",
+      "category": "amore", "emoji": "💫",
+      "cover": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900&q=80",
+        "https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=900&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "year": 2001, "month": "Febbraio", "day": "14", "fullDate": "14 Febbraio 2001",
+      "title": "Il Primo San Valentino",
+      "description": "Il primo San Valentino insieme: fiori rossi, una cena a lume di candela e la consapevolezza che quella persona speciale sarebbe rimasta per sempre. Una serata che ancora ricordiamo con il sorriso.",
+      "category": "amore", "emoji": "❤️",
+      "cover": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=900&q=80",
+        "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&q=80",
+        "https://images.unsplash.com/photo-1582037928769-181f2644ecb7?w=900&q=80"
+      ]
+    },
+    {
+      "id": 3,
+      "year": 2002, "month": "Agosto",   "day": "3",  "fullDate": "3 Agosto 2002",
+      "title": "Il Primo Viaggio — Parigi",
+      "description": "Prima vacanza insieme: Parigi, la Torre Eiffel al tramonto e una promessa sussurrata sotto le stelle. La città dell'amore come testimone silenziosa di un sentimento che cresceva ogni giorno di più.",
+      "category": "viaggio", "emoji": "✈️",
+      "cover": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80",
+        "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=900&q=80",
+        "https://images.unsplash.com/photo-1478344500949-d9c41f2f7ff4?w=900&q=80"
+      ]
+    },
+    {
+      "id": 4,
+      "year": 2003, "month": "Marzo",    "day": "8",  "fullDate": "8 Marzo 2003",
+      "title": "La Prima Casa",
+      "description": "Le chiavi di un piccolo appartamento in mano. Scatole ovunque, pareti bianche e una coppia di sognatori pronti a costruire il loro nido. Ogni angolo dipinto insieme, ogni mobile scelto insieme.",
+      "category": "casa", "emoji": "🏠",
+      "cover": "https://images.unsplash.com/photo-1560440021-33f9b867899d?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1560440021-33f9b867899d?w=900&q=80",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80"
+      ]
+    },
+    {
+      "id": 5,
+      "year": 2004, "month": "Settembre","day": "19", "fullDate": "19 Settembre 2004",
+      "title": "La Proposta di Matrimonio",
+      "description": "Al tramonto sul lungomare, con l'anello nascosto in un cofanetto di velluto bordeaux. Una domanda che cambia la vita, una risposta che non si è fatta attendere neanche un secondo.",
+      "category": "amore", "emoji": "💍",
+      "cover": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=900&q=80",
+        "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=900&q=80",
+        "https://images.unsplash.com/photo-1475724017904-b712052bb302?w=900&q=80"
+      ]
+    },
+    {
+      "id": 6,
+      "year": 2005, "month": "Maggio",   "day": "15", "fullDate": "15 Maggio 2005",
+      "title": "Il Matrimonio",
+      "description": "Il giorno più bello della vita. Una chiesa in fiori, 150 invitati con gli occhi lucidi, e due sì che echeggiarono per sempre nel cuore di entrambi. Una danza che durerà tutta la vita.",
+      "category": "matrimonio", "emoji": "💒",
+      "cover": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=900&q=80",
+        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
+        "https://images.unsplash.com/photo-1520854221256-17d22a783e9c?w=900&q=80"
+      ]
+    },
+    {
+      "id": 7,
+      "year": 2006, "month": "Luglio",   "day": "2",  "fullDate": "2 Luglio 2006",
+      "title": "Luna di Miele alle Maldive",
+      "description": "Acque cristalline, bungalow sull'acqua e tramonti mozzafiato. Sette giorni fuori dal mondo, immersi solo l'uno nell'altro. Un paradiso che ci ha accolto come sposi.",
+      "category": "viaggio", "emoji": "🌴",
+      "cover": "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=900&q=80",
+        "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=80",
+        "https://images.unsplash.com/photo-1540202403-b7abd6747a18?w=900&q=80"
+      ]
+    },
+    {
+      "id": 8,
+      "year": 2007, "month": "Aprile",   "day": "7",  "fullDate": "7 Aprile 2007",
+      "title": "Nasce Luca",
+      "description": "Il giorno che tutto cambia. Un piccolo essere di 3,2 kg che con il suo primo vagito ha trasformato due innamorati in una famiglia. Il nostro cuore si è moltiplicato.",
+      "category": "famiglia", "emoji": "👶",
+      "cover": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=900&q=80",
+        "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=900&q=80",
+        "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=900&q=80"
+      ]
+    },
+    {
+      "id": 9,
+      "year": 2009, "month": "Novembre", "day": "23", "fullDate": "23 Novembre 2009",
+      "title": "Nasce Giulia",
+      "description": "La nostra piccola principessa. Con i suoi occhi verdi e il sorriso di mamma, ha portato ancora più luce nella nostra vita. Due figli, una famiglia completa.",
+      "category": "famiglia", "emoji": "🌸",
+      "cover": "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=900&q=80",
+        "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=80",
+        "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&q=80"
+      ]
+    },
+    {
+      "id": 10,
+      "year": 2010, "month": "Giugno",   "day": "11", "fullDate": "11 Giugno 2010",
+      "title": "La Casa dei Sogni",
+      "description": "Dopo anni di risparmio, finalmente la casa con giardino. Un ciliegio nel cortile, una cucina grande e spazio per costruire nuovi ricordi. Le radici della nostra famiglia.",
+      "category": "casa", "emoji": "🏡",
+      "cover": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80"
+      ]
+    },
+    {
+      "id": 11,
+      "year": 2012, "month": "Marzo",    "day": "16", "fullDate": "16 Marzo 2012",
+      "title": "Arriva Artù",
+      "description": "Un cucciolo di labrador color miele che con le sue prime zampate impacciate ha rubato il cuore di tutta la famiglia. Da quel giorno le nostre passeggiate non sono mai state le stesse.",
+      "category": "famiglia", "emoji": "🐾",
+      "cover": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1552053831-71594a27632d?w=900&q=80",
+        "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&q=80",
+        "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=900&q=80"
+      ]
+    },
+    {
+      "id": 12,
+      "year": 2013, "month": "Agosto",   "day": "9",  "fullDate": "9 Agosto 2013",
+      "title": "Estate in Toscana",
+      "description": "Una villa tra le colline del Chianti, vino rosso al tramonto, cipressi e girasoli. Un'estate che profumava di eternità. I bambini tra i filari, noi mano nella mano.",
+      "category": "viaggio", "emoji": "🍷",
+      "cover": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=900&q=80",
+        "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=80",
+        "https://images.unsplash.com/photo-1534445538923-ab38571758f4?w=900&q=80"
+      ]
+    },
+    {
+      "id": 13,
+      "year": 2015, "month": "Maggio",   "day": "15", "fullDate": "15 Maggio 2015",
+      "title": "10° Anniversario di Matrimonio",
+      "description": "Dieci anni di matrimonio. Una cena romantica nello stesso ristorante della proposta, gli stessi occhi di allora — ma con dentro dieci anni in più di vita condivisa. Ogni ruga, una storia.",
+      "category": "anniversario", "emoji": "🎊",
+      "cover": "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=900&q=80",
+        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80",
+        "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=900&q=80"
+      ]
+    },
+    {
+      "id": 14,
+      "year": 2017, "month": "Luglio",   "day": "21", "fullDate": "21 Luglio 2017",
+      "title": "Giappone: Un Sogno",
+      "description": "Tokyo, Kyoto, i templi zen e i fiori di ciliegio. Un viaggio che ha aperto nuovi orizzonti e fatto scoprire un mondo lontanissimo eppure stranamente familiare.",
+      "category": "viaggio", "emoji": "🗻",
+      "cover": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80",
+        "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=900&q=80",
+        "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=900&q=80"
+      ]
+    },
+    {
+      "id": 15,
+      "year": 2019, "month": "Giugno",   "day": "28", "fullDate": "28 Giugno 2019",
+      "title": "Laurea di Luca",
+      "description": "Il nostro primogenito con la corona d'alloro. Lacrime di gioia, un discorso emozionante e un pranzo in famiglia da ricordare per sempre. Siamo orgogliosi come non mai.",
+      "category": "famiglia", "emoji": "🎓",
+      "cover": "https://images.unsplash.com/photo-1627556704302-624286467c65?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1627556704302-624286467c65?w=900&q=80",
+        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80",
+        "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=80"
+      ]
+    },
+    {
+      "id": 16,
+      "year": 2020, "month": "Aprile",   "day": "4",  "fullDate": "4 Aprile 2020",
+      "title": "Il Lockdown: Insieme",
+      "description": "Il mondo si fermò, ma noi no. Puzzle, libri, cucina sperimentale e tante risate. La quarantena ci ha ricordato che la casa è dove sei con le persone giuste.",
+      "category": "speciale", "emoji": "🏠",
+      "cover": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80",
+        "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=900&q=80",
+        "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=900&q=80"
+      ]
+    },
+    {
+      "id": 17,
+      "year": 2021, "month": "Settembre","day": "11", "fullDate": "11 Settembre 2021",
+      "title": "Matrimonio di Luca",
+      "description": "Il nostro bambino si è sposato. Vedere il figlio camminare verso l'altare è stata l'emozione più grande: un cerchio che si chiude e uno nuovo che si apre.",
+      "category": "famiglia", "emoji": "💒",
+      "cover": "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=900&q=80",
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=900&q=80",
+        "https://images.unsplash.com/photo-1517591324893-bcb0c19c8ee0?w=900&q=80"
+      ]
+    },
+    {
+      "id": 18,
+      "year": 2022, "month": "Marzo",    "day": "3",  "fullDate": "3 Marzo 2022",
+      "title": "Nonni per la Prima Volta",
+      "description": "Piccola Elena è arrivata al mondo pesando 3,1 kg. Essere nonni è una gioia indescrivibile: l'amore si moltiplica senza dividersi mai.",
+      "category": "famiglia", "emoji": "👴👵",
+      "cover": "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=900&q=80",
+        "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?w=900&q=80",
+        "https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?w=900&q=80"
+      ]
+    },
+    {
+      "id": 19,
+      "year": 2023, "month": "Ottobre",  "day": "1",  "fullDate": "1 Ottobre 2023",
+      "title": "Cammino de Santiago",
+      "description": "500 km a piedi. Vesciche, pioggia, fatica — e un'alba finale sulla cattedrale che ha ripagato tutto. Un viaggio che è anche una metafora: si cammina meglio in due.",
+      "category": "viaggio", "emoji": "🥾",
+      "cover": "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=900&q=80",
+        "https://images.unsplash.com/photo-1536625737227-92a1fc042d0b?w=900&q=80",
+        "https://images.unsplash.com/photo-1523541465755-c5b42a0ea51d?w=900&q=80"
+      ]
+    },
+    {
+      "id": 20,
+      "year": 2024, "month": "Maggio",   "day": "17", "fullDate": "17 Maggio 2024",
+      "title": "Laurea di Giulia",
+      "description": "La nostra bambina con i capelli ricci oggi è dottoressa in architettura. Con quella stessa grinta che aveva da piccola, ha conquistato il suo sogno. Che orgoglio.",
+      "category": "famiglia", "emoji": "🏛️",
+      "cover": "https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?w=900&q=80",
+        "https://images.unsplash.com/photo-1562564055-71e051d33c19?w=900&q=80",
+        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80"
+      ]
+    },
+    {
+      "id": 21,
+      "year": 2025, "month": "Giugno",   "day": "15", "fullDate": "15 Giugno 2025",
+      "title": "25° Anniversario",
+      "description": "Venticinque anni. Non sono stati sempre facili, ma ogni giorno è stato vissuto sapendo di avere accanto la persona giusta. Qui, adesso, ancora insieme — con lo stesso amore di sempre, e molto di più.",
+      "category": "anniversario", "emoji": "🥂",
+      "cover": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=700&q=80",
+      "photos": [
+        "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=900&q=80",
+        "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=900&q=80",
+        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80",
+        "https://images.unsplash.com/photo-1543332164-6e82f355badc?w=900&q=80"
+      ]
+    }
+  ]
+}
