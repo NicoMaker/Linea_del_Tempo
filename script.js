@@ -12,16 +12,20 @@
   const { anniversary: ann, events } = DATA;
 
   /* ── Populate header / hero ── */
-  document.getElementById("nav-couple").textContent  = ann.couple;
+  document.getElementById("nav-couple").textContent = ann.couple;
   document.getElementById("hero-couple").textContent = ann.couple;
-  document.getElementById("hero-dates").textContent  = `${ann.startDate} — ${ann.anniversaryDate}`;
+  document.getElementById("hero-dates").textContent = `${ann.startDate} — ${ann.anniversaryDate}`;
+
+  // AGGIUNTO: Range date nella timeline spine
+  const tlSpine = document.querySelector(".tl-spine");
+
 
   /* ── Build timeline ── */
   const tlEvents = document.getElementById("tl-events");
 
   events.forEach((ev, i) => {
     const side = i % 2 === 0 ? "left" : "right";
-    const el   = document.createElement("div");
+    const el = document.createElement("div");
     el.className = `tl-event ${side}`;
 
     const cardHTML = `
@@ -31,7 +35,7 @@
         </div>
         <div class="tl-card-body">
           <div class="tl-card-meta">
-            <span class="tl-card-date">${ev.day} ${ev.month}</span>
+            <span class="tl-card-date">${ev.fullDate}</span>
             <span class="tl-card-emoji" aria-hidden="true">${ev.emoji}</span>
           </div>
           <h3 class="tl-card-title">${ev.title}</h3>
@@ -54,8 +58,10 @@
 
     const card = el.querySelector(".tl-card");
     const open = () => openModal(ev);
-    card.addEventListener("click",  open);
-    card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") open(); });
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", e => { 
+      if (e.key === "Enter" || e.key === " ") open(); 
+    });
 
     tlEvents.appendChild(el);
   });
@@ -63,25 +69,28 @@
   /* ── Intersection Observer for scroll-reveal ── */
   const io = new IntersectionObserver(
     entries => entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
+      if (en.isIntersecting) { 
+        en.target.classList.add("visible"); 
+        io.unobserve(en.target); 
+      }
     }),
     { threshold: 0.12 }
   );
   document.querySelectorAll(".tl-event").forEach(el => io.observe(el));
 
   /* ── Modal ── */
-  const backdrop   = document.getElementById("modal-backdrop");
-  const modalEl    = document.getElementById("modal");
+  const backdrop = document.getElementById("modal-backdrop");
+  const modalEl = document.getElementById("modal");
   let currentPhotos = [];
   let lbIdx = 0;
 
   function openModal(ev) {
-    document.getElementById("modal-cover").src        = ev.cover;
-    document.getElementById("modal-cover").alt        = ev.title;
-    document.getElementById("modal-date").textContent  = `${ev.fullDate} · ${ev.year}`;
+    document.getElementById("modal-cover").src = ev.cover;
+    document.getElementById("modal-cover").alt = ev.title;
+    document.getElementById("modal-date").textContent = ev.fullDate;
     document.getElementById("modal-title").textContent = ev.title;
-    document.getElementById("modal-desc").textContent  = ev.description;
-    document.getElementById("modal-cat").textContent   = ev.category || "";
+    document.getElementById("modal-desc").textContent = ev.description;
+    document.getElementById("modal-cat").textContent = ev.category || "";
 
     const gallery = document.getElementById("modal-gallery");
     gallery.innerHTML = "";
@@ -105,9 +114,14 @@
   }
 
   document.getElementById("modal-close").addEventListener("click", closeModal);
-  backdrop.addEventListener("click", e => { if (e.target === backdrop) closeModal(); });
+  backdrop.addEventListener("click", e => { 
+    if (e.target === backdrop) closeModal(); 
+  });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closeModal(); closeLightbox(); }
+    if (e.key === "Escape") { 
+      closeModal(); 
+      closeLightbox(); 
+    }
   });
 
   /* ── Lightbox ── */
@@ -118,7 +132,9 @@
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
     lb.style.display = "flex";
   }
-  function closeLightbox() { lb.style.display = "none"; }
+  function closeLightbox() { 
+    lb.style.display = "none"; 
+  }
 
   document.getElementById("lb-close").addEventListener("click", closeLightbox);
   document.getElementById("lb-next").addEventListener("click", e => {
@@ -131,11 +147,15 @@
     lbIdx = (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
   });
-  lb.addEventListener("click", e => { if (e.target === lb || e.target.tagName !== "IMG") closeLightbox(); });
+  lb.addEventListener("click", e => { 
+    if (e.target === lb || e.target.tagName !== "IMG") closeLightbox(); 
+  });
 
   /* ── Swipe support for lightbox on mobile ── */
   let touchX = null;
-  lb.addEventListener("touchstart", e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchstart", e => { 
+    touchX = e.changedTouches[0].clientX; 
+  }, { passive: true });
   lb.addEventListener("touchend", e => {
     if (touchX === null) return;
     const dx = e.changedTouches[0].clientX - touchX;
