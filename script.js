@@ -1,5 +1,4 @@
 (async () => {
-  /* ── Load data ── */
   let DATA;
   try {
     const res = await fetch("data.json");
@@ -11,27 +10,24 @@
 
   const { anniversary: ann, events } = DATA;
 
-  /* ── Format helpers ── */
   function formatDateLabel(ev) {
     return ev.dateTo ? `${ev.dateFrom} – ${ev.dateTo}` : ev.dateFrom;
   }
 
-  /* ── Populate header / hero ── */
-  document.getElementById("nav-couple").textContent  = ann.couple.replace(" & ", " & ");
-  document.getElementById("hero-couple");  // already static in HTML
+  document.getElementById("nav-couple").textContent = ann.couple;
 
-  /* ── Build timeline ── */
   const tlEvents = document.getElementById("tl-events");
 
   events.forEach((ev, i) => {
     const side = i % 2 === 0 ? "left" : "right";
-    const el   = document.createElement("div");
+    const el = document.createElement("div");
     el.className = `tl-event ${side}`;
 
     const dateLabel = formatDateLabel(ev);
-    const excerpt   = ev.description.length > 88
-      ? ev.description.substring(0, 88) + "…"
-      : ev.description;
+    const excerpt =
+      ev.description.length > 88
+        ? ev.description.substring(0, 88) + "…"
+        : ev.description;
 
     const cardHTML = `
       <div class="tl-card" role="button" tabindex="0" aria-label="Apri ${ev.title}">
@@ -69,38 +65,41 @@
     const card = el.querySelector(".tl-card");
     const open = () => openModal(ev);
     card.addEventListener("click", open);
-    card.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
     });
 
     tlEvents.appendChild(el);
   });
 
-  /* ── Scroll reveal ── */
   const io = new IntersectionObserver(
-    entries => entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
-    }),
-    { threshold: 0.08 }
+    (entries) =>
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("visible");
+          io.unobserve(en.target);
+        }
+      }),
+    { threshold: 0.08 },
   );
-  document.querySelectorAll(".tl-event").forEach(el => io.observe(el));
-
-  /* ── Stagger visible cards on load ── */
+  document.querySelectorAll(".tl-event").forEach((el) => io.observe(el));
   document.querySelectorAll(".tl-event").forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.04}s`;
   });
 
-  /* ── Modal ── */
   const backdrop = document.getElementById("modal-backdrop");
   let currentPhotos = [];
   let lbIdx = 0;
 
   function openModal(ev) {
-    document.getElementById("modal-cover").src          = ev.cover;
-    document.getElementById("modal-cover").alt          = ev.title;
-    document.getElementById("modal-title").textContent  = ev.title;
-    document.getElementById("modal-desc").textContent   = ev.description;
-    document.getElementById("modal-cat").textContent    = ev.category || "";
+    document.getElementById("modal-cover").src = ev.cover;
+    document.getElementById("modal-cover").alt = ev.title;
+    document.getElementById("modal-title").textContent = ev.title;
+    document.getElementById("modal-desc").textContent = ev.description;
+    document.getElementById("modal-cat").textContent = ev.category || "";
 
     const dateLabel = ev.dateTo
       ? `${ev.dateFrom} – ${ev.dateTo} · ${ev.year}`
@@ -112,10 +111,13 @@
     currentPhotos = ev.photos || [];
     currentPhotos.forEach((url, i) => {
       const img = document.createElement("img");
-      img.src     = url;
-      img.alt     = `${ev.title} — foto ${i + 1}`;
+      img.src = url;
+      img.alt = `${ev.title} — foto ${i + 1}`;
       img.loading = "lazy";
-      img.addEventListener("click", e => { e.stopPropagation(); openLightbox(i); });
+      img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLightbox(i);
+      });
       gallery.appendChild(img);
     });
 
@@ -129,56 +131,83 @@
   }
 
   document.getElementById("modal-close").addEventListener("click", closeModal);
-  backdrop.addEventListener("click", e => { if (e.target === backdrop) closeModal(); });
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closeModal(); closeLightbox(); }
+  backdrop.addEventListener("click", (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+      closeLightbox();
+    }
   });
 
-  /* ── Lightbox ── */
   const lb = document.getElementById("lb");
+
+  function updateCounter() {
+    const el = document.getElementById("lb-counter");
+    el.innerHTML = `<span class="lb-cur">${lbIdx + 1}</span><span class="lb-sep">/</span><span class="lb-tot">${currentPhotos.length}</span>`;
+  }
 
   function openLightbox(i) {
     lbIdx = i;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
     lb.style.display = "flex";
+    updateCounter();
   }
-  function closeLightbox() { lb.style.display = "none"; }
+  function closeLightbox() {
+    lb.style.display = "none";
+  }
 
   document.getElementById("lb-close").addEventListener("click", closeLightbox);
-  document.getElementById("lb-next").addEventListener("click", e => {
+  document.getElementById("lb-next").addEventListener("click", (e) => {
     e.stopPropagation();
     lbIdx = (lbIdx + 1) % currentPhotos.length;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
+    updateCounter();
   });
-  document.getElementById("lb-prev").addEventListener("click", e => {
+  document.getElementById("lb-prev").addEventListener("click", (e) => {
     e.stopPropagation();
     lbIdx = (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
+    updateCounter();
   });
-  lb.addEventListener("click", e => {
+  lb.addEventListener("click", (e) => {
     if (e.target === lb || e.target.id === "lb-stage") closeLightbox();
   });
 
-  /* ── Swipe support ── */
   let touchX = null;
-  lb.addEventListener("touchstart", e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
-  lb.addEventListener("touchend", e => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 40) {
-      lbIdx = dx < 0
-        ? (lbIdx + 1) % currentPhotos.length
-        : (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
-      document.getElementById("lb-img").src = currentPhotos[lbIdx];
-    }
-    touchX = null;
-  }, { passive: true });
+  lb.addEventListener(
+    "touchstart",
+    (e) => {
+      touchX = e.changedTouches[0].clientX;
+    },
+    { passive: true },
+  );
+  lb.addEventListener(
+    "touchend",
+    (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) {
+        lbIdx =
+          dx < 0
+            ? (lbIdx + 1) % currentPhotos.length
+            : (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
+        document.getElementById("lb-img").src = currentPhotos[lbIdx];
+        updateCounter();
+      }
+      touchX = null;
+    },
+    { passive: true },
+  );
 
-  /* ── Subtle nav shadow on scroll ── */
   const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => {
-    nav.style.boxShadow = window.scrollY > 30
-      ? "0 1px 40px rgba(0,0,0,.45)"
-      : "none";
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      nav.style.boxShadow =
+        window.scrollY > 30 ? "0 1px 40px rgba(0,0,0,.45)" : "none";
+    },
+    { passive: true },
+  );
 })();
