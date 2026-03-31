@@ -1020,10 +1020,6 @@ button {
     width: 22px;
     height: 22px;
   }
-  .modal-x-label {
-    display: block;
-    font-size: 0.52rem;
-  }
   .modal-x:hover {
     background: rgba(240, 234, 216, 0.35);
     border-color: rgba(240, 234, 216, 0.8);
