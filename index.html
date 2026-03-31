@@ -641,7 +641,33 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .lb-arrow svg { width: 28px; height: 28px; }
 .lb-prev { left: 1.5rem; }
 .lb-next { right: 1.5rem; }
-.lb-arrow:hover { color: var(--cream); transform: translateY(-50%) scale(1.15); }
+.lb-counter {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: .18em;
+  color: rgba(240,234,216,.55);
+  display: flex;
+  align-items: baseline;
+  gap: .3em;
+  pointer-events: none;
+}
+.lb-counter .lb-cur {
+  font-size: 1.5rem;
+  color: var(--gold-l);
+  font-weight: 300;
+}
+.lb-counter .lb-sep {
+  font-size: .8rem;
+  color: rgba(200,145,62,.4);
+}
+.lb-counter .lb-tot {
+  font-size: 1rem;
+  color: rgba(240,234,216,.4);
+}
 
 /* ── CLOSING ─────────────────────────────── */
 .closing {
@@ -919,6 +945,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,18 15,12 9,6"/></svg>
       </button>
       <div class="lb-stage"><img id="lb-img" src="" alt="" /></div>
+      <div class="lb-counter" id="lb-counter"></div>
     </div>
 
     <!-- CLOSING -->
@@ -1084,10 +1111,16 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
   const lb = document.getElementById("lb");
 
+  function updateCounter() {
+    const el = document.getElementById("lb-counter");
+    el.innerHTML = `<span class="lb-cur">${lbIdx + 1}</span><span class="lb-sep">/</span><span class="lb-tot">${currentPhotos.length}</span>`;
+  }
+
   function openLightbox(i) {
     lbIdx = i;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
     lb.style.display = "flex";
+    updateCounter();
   }
   function closeLightbox() { lb.style.display = "none"; }
 
@@ -1096,11 +1129,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     e.stopPropagation();
     lbIdx = (lbIdx + 1) % currentPhotos.length;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
+    updateCounter();
   });
   document.getElementById("lb-prev").addEventListener("click", e => {
     e.stopPropagation();
     lbIdx = (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
+    updateCounter();
   });
   lb.addEventListener("click", e => {
     if (e.target === lb || e.target.id === "lb-stage") closeLightbox();
@@ -1116,6 +1151,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
         ? (lbIdx + 1) % currentPhotos.length
         : (lbIdx - 1 + currentPhotos.length) % currentPhotos.length;
       document.getElementById("lb-img").src = currentPhotos[lbIdx];
+      updateCounter();
     }
     touchX = null;
   }, { passive: true });
