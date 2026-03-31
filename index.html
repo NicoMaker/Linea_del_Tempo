@@ -120,14 +120,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   animation: bgFade 2s 0s var(--ease-out) both;
 }
 
-/* Big 25 — copre tutta la hero dall'alto assoluto */
+/* Big 25 — parte dal bordo superiore dello schermo */
 .hero-big-25 {
   position: absolute;
-  top: -64px;
+  top: calc(-64px - 0.18em);
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--serif);
-  font-size: min(130vh, 130vw);
+  font-size: min(145vh, 145vw);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -.06em;
@@ -775,44 +775,46 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (max-width: 480px) {
-  body { padding-top: 72px; }
-  .nav { height: 72px; }
+  body { padding-top: 56px; }
+  .nav { height: 56px; }
   .nav-inner {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: 0;
-    padding: 0 1.2rem;
+    padding: 0 1rem;
   }
-  .nav-logo { font-size: 1.5rem; justify-self: start; }
+  .nav-logo { font-size: 1.2rem; }
   .nav-center {
-    font-size: .52rem;
-    letter-spacing: .18em;
-    text-align: right;
-    justify-self: end;
-    color: var(--cream-d);
-    opacity: .9;
+    font-size: .42rem;
+    letter-spacing: .14em;
+    text-align: center;
+    opacity: .8;
   }
-  .nav-right { display: none; }
+  .nav-right {
+    display: block;
+    font-size: .42rem;
+    letter-spacing: .12em;
+    color: var(--gold-l);
+  }
 }
 
 @media (max-width: 680px) {
   .nav-inner {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    gap: .1rem;
+    grid-template-columns: auto 1fr auto;
     padding: 0 1rem;
   }
-  .nav-logo {
-    font-size: 1.4rem;
-    line-height: 1.1;
-  }
+  .nav-logo { font-size: 1.3rem; }
   .nav-center {
-    font-size: .48rem;
-    letter-spacing: .22em;
-    opacity: .75;
+    font-size: .5rem;
+    letter-spacing: .18em;
+    opacity: .8;
   }
-  .nav-right { display: none; }
+  .nav-right {
+    display: block;
+    font-size: .5rem;
+    letter-spacing: .14em;
+    color: var(--gold-l);
+  }
+  .hero-big-25 { top: calc(-56px + 2rem); }
   .tl-wrap { padding: 4rem 1rem 6rem; }
   .tl-center-line { left: 20px; }
   .tl-event {
