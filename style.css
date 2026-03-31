@@ -565,6 +565,17 @@ button {
   background: rgba(240, 234, 216, 0.15);
   transform: scale(1.1);
 }
+.modal-x-label {
+  display: none;
+  font-size: 0.5rem;
+  color: var(--cream-d);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: calc(100% + 4px);
+  white-space: nowrap;
+}
+
 .modal-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -924,35 +935,6 @@ button {
   }
 }
 
-@media (max-width: 480px) {
-  body {
-    padding-top: 56px;
-  }
-  .nav {
-    height: 56px;
-  }
-  .nav-inner {
-    grid-template-columns: auto 1fr auto;
-    gap: 0;
-    padding: 0 1rem;
-  }
-  .nav-logo {
-    font-size: 1.2rem;
-  }
-  .nav-center {
-    font-size: 0.42rem;
-    letter-spacing: 0.14em;
-    text-align: center;
-    opacity: 0.8;
-  }
-  .nav-right {
-    display: block;
-    font-size: 0.42rem;
-    letter-spacing: 0.12em;
-    color: var(--gold-l);
-  }
-}
-
 @media (max-width: 680px) {
   .nav-inner {
     grid-template-columns: auto 1fr auto;
@@ -1022,5 +1004,57 @@ button {
   }
   .tl-heading-title {
     font-size: clamp(2.2rem, 10vw, 3.5rem);
+  }
+  
+  /* ── Modal X più visibile su mobile ──────*/
+  .modal-x {
+    width: 52px;
+    height: 52px;
+    top: 0.8rem;
+    right: 0.8rem;
+    background: rgba(240, 234, 216, 0.25);
+    border: 2px solid rgba(240, 234, 216, 0.6);
+    color: rgba(240, 234, 216, 0.9);
+  }
+  .modal-x svg {
+    width: 22px;
+    height: 22px;
+  }
+  .modal-x-label {
+    display: block;
+    font-size: 0.52rem;
+  }
+  .modal-x:hover {
+    background: rgba(240, 234, 216, 0.35);
+    border-color: rgba(240, 234, 216, 0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 56px;
+  }
+  .nav {
+    height: 56px;
+  }
+  .nav-inner {
+    grid-template-columns: auto 1fr auto;
+    gap: 0;
+    padding: 0 1rem;
+  }
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+  .nav-center {
+    font-size: 0.42rem;
+    letter-spacing: 0.14em;
+    text-align: center;
+    opacity: 0.8;
+  }
+  .nav-right {
+    display: block;
+    font-size: 0.42rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-l);
   }
 }
