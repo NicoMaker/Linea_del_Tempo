@@ -11,28 +11,14 @@
 
   const { anniversary: ann, events } = DATA;
 
-  /* ── Helper: format date label from dateFrom / dateTo ── */
+  /* ── Format helpers ── */
   function formatDateLabel(ev) {
-    if (ev.dateTo) {
-      return `${ev.dateFrom} – ${ev.dateTo}`;
-    }
-    return ev.dateFrom;
-  }
-
-  /* ── Helper: short date for card (e.g. "3 – 17 Ago" or "21 Giu") ── */
-  function formatDateShort(ev) {
-    if (ev.dateTo) {
-      // Extract day numbers from both dates, keep full "to" date
-      const fromDay = ev.dateFrom.split(" ")[0];
-      return `${fromDay} → ${ev.dateTo}`;
-    }
-    return ev.dateFrom;
+    return ev.dateTo ? `${ev.dateFrom} – ${ev.dateTo}` : ev.dateFrom;
   }
 
   /* ── Populate header / hero ── */
-  document.getElementById("nav-couple").textContent  = ann.couple;
-  document.getElementById("hero-couple").textContent = ann.couple;
-  document.getElementById("hero-dates").textContent  = `${ann.startDate} — ${ann.anniversaryDate}`;
+  document.getElementById("nav-couple").textContent  = ann.couple.replace(" & ", " & ");
+  document.getElementById("hero-couple");  // already static in HTML
 
   /* ── Build timeline ── */
   const tlEvents = document.getElementById("tl-events");
@@ -42,37 +28,36 @@
     const el   = document.createElement("div");
     el.className = `tl-event ${side}`;
 
-    const isRange = !!ev.dateTo;
-    const dateShort = formatDateShort(ev);
+    const dateLabel = formatDateLabel(ev);
+    const excerpt   = ev.description.length > 88
+      ? ev.description.substring(0, 88) + "…"
+      : ev.description;
 
     const cardHTML = `
       <div class="tl-card" role="button" tabindex="0" aria-label="Apri ${ev.title}">
         <div class="tl-card-img-wrap">
           <img class="tl-card-img" src="${ev.cover}" alt="${ev.title}" loading="lazy" />
-          ${isRange ? `
-          <div class="tl-card-date-badge">
-            <span class="badge-range-icon">⟷</span>
-            <span>${ev.dateFrom.split(" ").slice(0,2).join(" ")} – ${ev.dateTo.split(" ").slice(0,2).join(" ")}</span>
-          </div>` : ""}
+          <div class="tl-card-img-overlay"></div>
+          <div class="tl-card-cat-pill">
+            <span class="tl-card-emoji">${ev.emoji}</span>
+            <span>${ev.category}</span>
+          </div>
         </div>
         <div class="tl-card-body">
-          <div class="tl-card-meta">
-            <span class="tl-card-cat">${ev.category}</span>
-            <span class="tl-card-emoji" aria-hidden="true">${ev.emoji}</span>
-          </div>
+          <p class="tl-card-date">${dateLabel}</p>
           <h3 class="tl-card-title">${ev.title}</h3>
-          <p class="tl-card-excerpt">${ev.description.substring(0, 90)}…</p>
-          <div class="tl-card-foot">
-            <span class="tl-card-date-text">${isRange ? `${ev.dateFrom} – ${ev.dateTo}` : ev.dateFrom}</span>
-            <span class="tl-card-cta">Scopri →</span>
+          <p class="tl-card-excerpt">${excerpt}</p>
+          <div class="tl-card-cta">
+            <span>Scopri</span>
+            <span class="tl-card-cta-arrow">→</span>
           </div>
         </div>
       </div>`;
 
     const nodeHTML = `
       <div class="tl-node">
-        <div class="tl-dot"></div>
         <span class="tl-node-year">${ev.year}</span>
+        <div class="tl-dot-outer"><div class="tl-dot"></div></div>
       </div>`;
 
     if (side === "left") {
@@ -85,7 +70,7 @@
     const open = () => openModal(ev);
     card.addEventListener("click", open);
     card.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") open();
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
     });
 
     tlEvents.appendChild(el);
@@ -96,9 +81,14 @@
     entries => entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
     }),
-    { threshold: 0.1 }
+    { threshold: 0.08 }
   );
   document.querySelectorAll(".tl-event").forEach(el => io.observe(el));
+
+  /* ── Stagger visible cards on load ── */
+  document.querySelectorAll(".tl-event").forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.04}s`;
+  });
 
   /* ── Modal ── */
   const backdrop = document.getElementById("modal-backdrop");
@@ -106,13 +96,12 @@
   let lbIdx = 0;
 
   function openModal(ev) {
-    document.getElementById("modal-cover").src         = ev.cover;
-    document.getElementById("modal-cover").alt         = ev.title;
-    document.getElementById("modal-title").textContent = ev.title;
-    document.getElementById("modal-desc").textContent  = ev.description;
-    document.getElementById("modal-cat").textContent   = ev.category || "";
+    document.getElementById("modal-cover").src          = ev.cover;
+    document.getElementById("modal-cover").alt          = ev.title;
+    document.getElementById("modal-title").textContent  = ev.title;
+    document.getElementById("modal-desc").textContent   = ev.description;
+    document.getElementById("modal-cat").textContent    = ev.category || "";
 
-    // Date: show range if dateTo exists
     const dateLabel = ev.dateTo
       ? `${ev.dateFrom} – ${ev.dateTo} · ${ev.year}`
       : `${ev.dateFrom} · ${ev.year}`;
@@ -123,8 +112,8 @@
     currentPhotos = ev.photos || [];
     currentPhotos.forEach((url, i) => {
       const img = document.createElement("img");
-      img.src = url;
-      img.alt = `${ev.title} — foto ${i + 1}`;
+      img.src     = url;
+      img.alt     = `${ev.title} — foto ${i + 1}`;
       img.loading = "lazy";
       img.addEventListener("click", e => { e.stopPropagation(); openLightbox(i); });
       gallery.appendChild(img);
@@ -167,10 +156,10 @@
     document.getElementById("lb-img").src = currentPhotos[lbIdx];
   });
   lb.addEventListener("click", e => {
-    if (e.target === lb || e.target.id === "lb") closeLightbox();
+    if (e.target === lb || e.target.id === "lb-stage") closeLightbox();
   });
 
-  /* ── Swipe on lightbox ── */
+  /* ── Swipe support ── */
   let touchX = null;
   lb.addEventListener("touchstart", e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
   lb.addEventListener("touchend", e => {
@@ -183,5 +172,13 @@
       document.getElementById("lb-img").src = currentPhotos[lbIdx];
     }
     touchX = null;
+  }, { passive: true });
+
+  /* ── Subtle nav shadow on scroll ── */
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => {
+    nav.style.boxShadow = window.scrollY > 30
+      ? "0 1px 40px rgba(0,0,0,.45)"
+      : "none";
   }, { passive: true });
 })();

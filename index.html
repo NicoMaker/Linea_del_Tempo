@@ -6,7 +6,7 @@
     <title>25° Anniversario — Mara & Andrea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -14,93 +14,118 @@
     <!-- NAV -->
     <header class="nav" id="nav">
       <div class="nav-inner">
-        <span class="nav-logo" id="nav-couple">Mara & Andrea</span>
-        <span class="nav-tag">XXV · 2000–2025</span>
+        <span class="nav-logo" id="nav-couple">M &amp; A</span>
+        <span class="nav-center">XXV · 2000–2025</span>
+        <span class="nav-right">25° Anniversario</span>
       </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-glow"></div>
+      <div class="hero-bg-text" aria-hidden="true">AMORE</div>
       <div class="hero-content">
-        <p class="hero-eyebrow">25° Anniversario</p>
-        <h1 class="hero-title" id="hero-couple">Mara &amp; Andrea</h1>
-        <p class="hero-dates" id="hero-dates">02 Settembre 2000 — 02 Settembre 2025</p>
-        <p class="hero-tagline">Una storia d'amore, capitolo dopo capitolo</p>
+        <p class="hero-sup">02 Settembre 2000 — 02 Settembre 2025</p>
+        <h1 class="hero-title" id="hero-couple">
+          <span class="hero-title-line line1">Mara</span>
+          <span class="hero-title-amp">&amp;</span>
+          <span class="hero-title-line line2">Andrea</span>
+        </h1>
+        <p class="hero-sub">Venticinque anni d'amore, capitolo dopo capitolo</p>
+        <div class="hero-divider"><span></span><span class="hero-diamond">◆</span><span></span></div>
       </div>
-      <div class="hero-big-num" aria-hidden="true">25</div>
-      <div class="hero-scroll">
-        <div class="hero-scroll-line"></div>
+      <div class="hero-scroll-hint">
+        <span>Scorri</span>
+        <div class="hero-scroll-track"><div class="hero-scroll-thumb"></div></div>
       </div>
     </section>
 
+    <!-- INTRO STRIP -->
+    <div class="intro-strip">
+      <div class="intro-strip-inner">
+        <div class="intro-stat"><span class="stat-n">25</span><span class="stat-l">Anni</span></div>
+        <div class="intro-divider"></div>
+        <div class="intro-stat"><span class="stat-n">21</span><span class="stat-l">Capitoli</span></div>
+        <div class="intro-divider"></div>
+        <div class="intro-stat"><span class="stat-n">∞</span><span class="stat-l">Ancora davanti</span></div>
+      </div>
+    </div>
+
     <!-- TIMELINE -->
     <main class="tl-wrap">
-      <div class="tl-spine"></div>
+      <div class="tl-center-line"></div>
       <div class="tl-events" id="tl-events"></div>
     </main>
 
     <!-- MODAL -->
     <div class="modal-backdrop" id="modal-backdrop">
       <div class="modal" id="modal" role="dialog" aria-modal="true">
-        <button class="modal-x" id="modal-close" aria-label="Chiudi">✕</button>
-        <div class="modal-hero">
-          <img id="modal-cover" src="" alt="" />
-          <div class="modal-hero-overlay">
-            <span class="modal-badge" id="modal-cat"></span>
+        <button class="modal-x" id="modal-close" aria-label="Chiudi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+        </button>
+        <div class="modal-split">
+          <div class="modal-visual">
+            <img id="modal-cover" src="" alt="" />
+            <div class="modal-visual-overlay">
+              <span class="modal-badge" id="modal-cat"></span>
+            </div>
           </div>
-        </div>
-        <div class="modal-body">
-          <p class="modal-date" id="modal-date"></p>
-          <h2 class="modal-title" id="modal-title"></h2>
-          <p class="modal-desc" id="modal-desc"></p>
-          <p class="modal-photos-label">Fotografie</p>
-          <div class="modal-gallery" id="modal-gallery"></div>
+          <div class="modal-body">
+            <p class="modal-date" id="modal-date"></p>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-desc" id="modal-desc"></p>
+            <div class="modal-gallery-wrap">
+              <p class="modal-photos-label">Fotografie</p>
+              <div class="modal-gallery" id="modal-gallery"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- LIGHTBOX -->
     <div class="lb" id="lb">
-      <button class="lb-close" id="lb-close">✕</button>
-      <button class="lb-arrow lb-prev" id="lb-prev">‹</button>
-      <button class="lb-arrow lb-next" id="lb-next">›</button>
+      <button class="lb-close" id="lb-close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+      <button class="lb-arrow lb-prev" id="lb-prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <button class="lb-arrow lb-next" id="lb-next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,18 15,12 9,6"/></svg>
+      </button>
       <div class="lb-stage"><img id="lb-img" src="" alt="" /></div>
     </div>
 
-    <!-- CLOSING SECTION -->
+    <!-- CLOSING -->
     <section class="closing">
+      <div class="closing-noise"></div>
       <div class="closing-inner">
-        <p class="closing-eyebrow">E adesso?</p>
-        <h2 class="closing-title">La storia continua</h2>
+        <p class="closing-sup">E adesso?</p>
+        <h2 class="closing-title">La storia<br><em>continua</em></h2>
         <p class="closing-text">
           Venticinque anni non sono un punto fermo — sono una soglia.<br>
-          Ogni capitolo scritto finora è solo il preambolo di quelli che verranno.
+          Il prossimo capitolo è in bianco. Scriviamolo insieme.
         </p>
-        <div class="closing-counter">
-          <div class="closing-num-block">
-            <span class="closing-num gold">25</span>
-            <span class="closing-num-label">anni vissuti</span>
+        <div class="closing-nums">
+          <div class="cnum">
+            <span class="cnum-n">25</span>
+            <span class="cnum-l">anni vissuti</span>
           </div>
-          <svg class="closing-arrow" viewBox="0 0 80 20" fill="none">
-            <line x1="0" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
-            <polyline points="54,3 70,10 54,17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-          <div class="closing-num-block">
-            <span class="closing-num dim">∞</span>
-            <span class="closing-num-label">ancora davanti</span>
+          <div class="cnum-arrow">→</div>
+          <div class="cnum">
+            <span class="cnum-n">∞</span>
+            <span class="cnum-l">ancora davanti</span>
           </div>
         </div>
-        <p class="closing-cta">Il prossimo capitolo è in bianco.<br>Scriviamolo insieme.</p>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-inner">
-        <span class="footer-couple">Mara &amp; Andrea</span>
+        <span class="footer-logo">M &amp; A</span>
         <span class="footer-motto">«Amare non è guardarsi l'un l'altro, è guardare insieme nella stessa direzione.»</span>
-        <span class="footer-copy">© 2025 · XXV Anniversario ♥</span>
+        <span class="footer-copy">© 2025 · XXV ♥</span>
       </div>
     </footer>
 
